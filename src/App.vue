@@ -18,13 +18,6 @@ export default {
     return{
       todoItems :[]
     }
-  },created(){
-    if(localStorage.length >0){
-      for(var i =0;i<localStorage.length;i++){
-        this.todoItems.push(localStorage.key(i));
-      }
-
-    }
   },methods:{
     addTodo(todoItem){
       localStorage.setItem(todoItem,todoItem);
@@ -37,6 +30,18 @@ export default {
     removeTodo(todoItem,index){
       localStorage.removeItem(todoItem);
       this.todoItems.splice(index,1);
+    },
+    updateTodo(otherTodoItem,index){
+      localStorage.setItem(newTodoItem);
+      this.todoItems.splice(index,1);
+
+    }
+  },created(){
+    if(localStorage.length >0){
+      for(var i =0;i<localStorage.length;i++){
+        this.todoItems.push(localStorage.key(i));
+      }
+
     }
   },
   components:{
